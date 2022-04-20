@@ -1,0 +1,43 @@
+@startuml
+
+' Root Namespace
+class Battleship.Logger {
+    +{static} Information(string)
+    +{static} ConsoleInformation(string)
+}
+
+enum Battleship.AttackStatus {
+    NOT_ATTACKED
+    ATTACKED_NOT_HIT
+    ATTACKED_HIT
+}
+
+' GUIComponents Namespace
+class Battleship.GUIComponents.MainWindow:Window {
+    + aboutWindow: AboutWindow
+    + gameScreen: GameWindow
+}
+
+MainWindow-->AboutWindow
+MainWindow-->GameWindow
+
+class Battleship.GUIComponents.AboutWindow:Window {
+
+}
+
+class Battleship.GUIComponents.GameWindow:Window {
+    - CurrentGame: Game
+}
+
+' CoreComponents Namespace
+GameWindow-->Game
+
+class Battleship.CoreComponents.Game {
+
+}
+
+class Battleship.CoreComponents.Player {
+
+}
+
+@enduml
